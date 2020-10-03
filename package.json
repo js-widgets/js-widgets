@@ -1,0 +1,28 @@
+{
+  "name": "js-widgets",
+  "private": true,
+  "scripts": {
+    "lint": "eslint . --quiet",
+    "lint:fix": "prettier --write . && eslint . --fix",
+    "lint-staged": "lint-staged",
+    "test": "jest --coverage",
+    "update-badge": "make-coverage-badge --output-path ./assets/coverage.svg || true; git add ./assets/coverage.svg"
+  },
+  "devDependencies": {
+    "@commitlint/cli": "^11.0.0",
+    "@commitlint/config-conventional": "^6.1.3",
+    "ajv-cli": "^3.0.0",
+    "eslint": "^7.8.1",
+    "eslint-config-prettier": "^6.11.0",
+    "eslint-plugin-import": "^2.22.0",
+    "eslint-plugin-jest": "^24.0.1",
+    "eslint-plugin-node": "^11.1.0",
+    "eslint-plugin-promise": "^4.2.1",
+    "husky": "^4.3.0",
+    "jest": "^26.4.2",
+    "lerna": "^3.22.1",
+    "lint-staged": "^10.4.0",
+    "make-coverage-badge": "^1.2.0",
+    "prettier": "^2.1.2"
+  }
+}

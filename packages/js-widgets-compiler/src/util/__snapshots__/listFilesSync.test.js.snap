@@ -1,0 +1,17 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`listFilesSync shows all the files 1`] = `
+Array [
+  "exampleDir1/exampleDir2/example2.txt",
+  "exampleDir1/exampleDir2/example3.txt",
+  "exampleDir1/widget.json",
+  "mocks/fail1/dist/.gitkeep",
+  "mocks/fail1/metadata/loader.js",
+  "mocks/fail1/metadata/personalization.js",
+  "mocks/fail1/metadata/registry.json",
+  "mocks/success/dist/.gitkeep",
+  "mocks/success/metadata/loader.js",
+  "mocks/success/metadata/personalization.js",
+  "mocks/success/metadata/registry.json",
+]
+`;

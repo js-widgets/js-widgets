@@ -1,0 +1,4 @@
+id: ingestion
+name: Ingestion
+description: 'This is used to define the different methods of ingesting a release. Examples are: tarballUrl, ghReleases, ...'
+loader: IngestionTypeLoader.js

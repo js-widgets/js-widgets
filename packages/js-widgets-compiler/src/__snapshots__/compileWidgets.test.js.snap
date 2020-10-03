@@ -1,0 +1,33 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`compileWidgets should compile every widget and write the result 1`] = `
+Array [
+  Object {
+    "availableTranslations": Array [
+      "en",
+    ],
+    "directoryUrl": "https://example.org/lorem",
+    "files": Array [],
+    "repositoryUrl": "https://example.org/foo",
+    "shortcode": "foo",
+    "title": "The Foo!",
+    "version": "v1.0.1",
+  },
+]
+`;
+
+exports[`compileWidgets should tolerate a 404 for the original registry 1`] = `
+Array [
+  Object {
+    "availableTranslations": Array [
+      "en",
+    ],
+    "directoryUrl": "https://example.org/lorem",
+    "files": Array [],
+    "repositoryUrl": "https://example.org/foo",
+    "shortcode": "foo",
+    "title": "The Foo!",
+    "version": "v1.0.1",
+  },
+]
+`;

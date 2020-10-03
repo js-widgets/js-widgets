@@ -1,0 +1,6 @@
+/coverage
+/packages/*/coverage
+/packages/*/node_modules
+/packages/js-widgets-compiler/dist
+/packages/js-widgets-compiler/metadata
+/packages/js-widgets-compiler/tests/mocks/fail1/metadata/registry.json

@@ -1,0 +1,12 @@
+id: tarballUrl
+name: Tarball URL
+description: Ingests a widget based on the URL of the tarball.
+loader: TarballUrlLoader.js
+type: ingestion
+
+# Custom properties.
+# ------------------
+# The key in the widget metadata that contains the URL to find the widget release and ingest it. This is also used to
+# negotiate the plugin type. If the registry has 'tarballUrl' in its metadata, then it will use the 'Tarball URL'
+# ingestion method.
+urlKey: tarballUrl

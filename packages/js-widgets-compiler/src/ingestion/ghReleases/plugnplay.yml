@@ -1,0 +1,15 @@
+id: ghReleases
+name: GitHub Releases
+description: Ingests a widget based on the repository URL and the version.
+loader: GitHubReleasesLoader.js
+type: ingestion
+dependencies:
+  # This plugin uses another plugin to do part of its work.
+  - tarballUrl
+
+# Custom properties.
+# ------------------
+# The key in the widget metadata that contains the URL to find the widget release and ingest it. This is also used to
+# negotiate the plugin type. If the registry has 'repositoryUrl' in its metadata, then it will use the 'GitHub Releases'
+# ingestion method.
+urlKey: repositoryUrl

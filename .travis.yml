@@ -1,0 +1,25 @@
+sudo: required
+language: node_js
+node_js: '12'
+dist: xenial
+
+notifications:
+  email: false
+
+stages:
+  - name: test
+  - name: deploy
+    if: branch IN (master) AND type IN (push) AND fork = false
+
+install: HUSKY_SKIP_INSTALL=1 npm install
+script: npm test
+jobs:
+  include:
+    - stage: test
+    - stage: deploy
+      deploy:
+        provider: script
+        script: npx semantic-release
+        skip_cleanup: true
+        on:
+          all_branches: true

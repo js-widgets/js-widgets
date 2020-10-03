@@ -1,0 +1,29 @@
+{
+  "name": "@js-widgets/compiler",
+  "version": "1.0.0",
+  "description": "Widget registry definition file and the compiled widgets.",
+  "engines": {
+    "node": ">=10"
+  },
+  "private": false,
+  "license": "MIT",
+  "publishConfig": {
+    "access": "public"
+  },
+  "main": "src/compileWidgets.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/e0ipso/js-widgets.git",
+    "directory": "packages/js-widgets-compiler"
+  },
+  "dependencies": {
+    "ajv": "^6.12.4",
+    "axios": "^0.19.0",
+    "config": "^3.3.1",
+    "debug": "^4.1.1",
+    "decompress": "^4.2.0",
+    "find-versions": "^3.2.0",
+    "github-api": "^3.3.0",
+    "plugnplay": "^3.6.0"
+  }
+}

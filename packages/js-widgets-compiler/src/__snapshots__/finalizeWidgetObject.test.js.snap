@@ -1,0 +1,12 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`finalizeWidgetObject should fill in the details 1`] = `
+Object {
+  "files": Array [
+    "exampleDir2/example2.txt",
+    "exampleDir2/example3.txt",
+    "widget.json",
+  ],
+  "shortcode": "foo",
+}
+`;
