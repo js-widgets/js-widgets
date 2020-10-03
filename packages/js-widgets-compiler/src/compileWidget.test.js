@@ -21,7 +21,7 @@ const compileWidget = require('./compileWidget');
 
 describe('compileWidget', () => {
   const remoteRegistryUrl = new URL('https://example.org');
-  const distDir = 'tests/exampleDir1/dist';
+  const distDir = `${__dirname}/../tests/exampleDir1/dist`;
   const options = { storage: { remote: { origin: { registryPath: 'hoot' } } } };
   const widget = {
     version: 'v12.33.2',
@@ -31,7 +31,7 @@ describe('compileWidget', () => {
   it('should compile successfully', async () => {
     expect.assertions(2);
     fs.existsSync.mockImplementation(
-      (path) => path === 'tests/exampleDir1/dist/lorem/v12',
+      (path) => path === `${__dirname}/../tests/exampleDir1/dist/lorem/v12`,
     );
     fs.mkdirSync.mockImplementation();
     decompress.mockImplementation(() =>
@@ -51,7 +51,7 @@ describe('compileWidget', () => {
   it('should handle invalid widgets', async () => {
     expect.assertions(2);
     fs.existsSync.mockImplementation(
-      (path) => path === 'tests/exampleDir1/dist/lorem/v12',
+      (path) => path === `${__dirname}/../tests/exampleDir1/dist/lorem/v12`,
     );
     fs.mkdirSync.mockImplementation();
     decompress.mockImplementation(() =>
