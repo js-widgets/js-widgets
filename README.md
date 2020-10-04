@@ -1,3 +1,3 @@
-# Widget Registry ![Node.js Package](https://github.com/js-widgets/js-widgets/workflows/Node.js%20Package/badge.svg)
+# Widget Registry ![Coverage](https://js-widgets.github.io/js-widgets/assets/coverage.svg)
 
 TBD
