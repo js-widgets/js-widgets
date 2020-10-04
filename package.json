@@ -6,7 +6,7 @@
     "lint:fix": "prettier --write . && eslint . --fix",
     "lint-staged": "lint-staged",
     "test": "jest --coverage",
-    "update-badge": "make-coverage-badge --output-path ./assets/coverage.svg || true; git add ./assets/coverage.svg"
+    "update-badge": "make-coverage-badge --output-path ./public/assets/coverage.svg || true; git add ./public/assets/coverage.svg"
   },
   "devDependencies": {
     "@commitlint/cli": "^11.0.0",
