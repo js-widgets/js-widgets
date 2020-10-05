@@ -9,6 +9,8 @@ jobs:
       -
         name: Checkout
         uses: actions/checkout@v2
+      - name: Update Coverage Badge
+        run: npm run update-badge
       -
         name: Gen dummy page
         run: |
