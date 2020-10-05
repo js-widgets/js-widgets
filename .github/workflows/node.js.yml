@@ -17,13 +17,13 @@ jobs:
         node-version: [12.x]
 
     steps:
-    - uses: actions/checkout@v2
-    - name: Use Node.js ${{ matrix.node-version }}
-      uses: actions/setup-node@v1
-      with:
-        node-version: ${{ matrix.node-version }}
-    - name: Install package dependencies
-      run: npm install -g lerna && npm ci && lerna bootstrap
-    - name: Run Linter
-      run: npm run lint
-    - run: npm test
+      - uses: actions/checkout@v2
+      - name: Use Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v1
+        with:
+          node-version: ${{ matrix.node-version }}
+      - name: Install package dependencies
+        run: npm ci && npx lerna bootstrap
+      - name: Run Linter
+        run: npm run lint
+      - run: npm test
