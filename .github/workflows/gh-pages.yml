@@ -1,14 +1,21 @@
 name: website
 
-on: push
+on:
+  push:
+    branches: [ master ]
 
 jobs:
   publish:
     runs-on: ubuntu-latest
     steps:
-      -
-        name: Checkout
-        uses: actions/checkout@v2
+      - uses: actions/checkout@v2
+      - name: Use Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v1
+        with:
+          node-version: ${{ matrix.node-version }}
+      - name: Install package dependencies
+        run: npm install -g lerna && npm ci && lerna bootstrap
+      - run: npm test
       - name: Update Coverage Badge
         run: npm run update-badge
       -
