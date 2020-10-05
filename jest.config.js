@@ -117,7 +117,11 @@ module.exports = {
   // rootDir: undefined,
 
   // A list of paths to directories that Jest should use to search for files in
-  roots: ['<rootDir>/packages/js-widgets-compiler/src'],
+  roots: [
+    '<rootDir>/packages/js-widgets-compiler/src',
+    '<rootDir>/packages/js-widgets-ingestion-gh-releases/src',
+    '<rootDir>/packages/js-widgets-ingestion-tarball/src',
+  ],
 
   // Allows you to use a custom runner instead of Jest's default test runner
   // runner: "jest-runner",

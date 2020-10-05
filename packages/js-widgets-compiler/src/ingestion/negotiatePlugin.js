@@ -1,7 +1,5 @@
 const { PluginManager } = require('plugnplay');
 
-const manager = new PluginManager();
-
 /**
  * Creates a plugin instance for ingestion of the release.
  *
@@ -16,6 +14,7 @@ const manager = new PluginManager();
  *   A plugin instantiated with the provided options and the ones in the configuration file.
  */
 module.exports = async (widgetMeta, supportedPluginType, pluginOptions) => {
+  const manager = new PluginManager(pluginOptions.managerOptions || {});
   const plugins = await manager.discover();
   let ingestionPluginDefinition;
   plugins.forEach((descriptor) => {
