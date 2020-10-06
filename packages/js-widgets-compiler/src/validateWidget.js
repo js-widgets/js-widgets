@@ -1,6 +1,23 @@
 const debug = require('debug')('widget:validate');
+const Ajv = require('ajv');
 
-const requiredProperties = ['version', 'shortcode', 'repositoryUrl'];
+const widgetSchema = {
+  type: 'object',
+  required: ['version', 'shortcode'],
+  additionalProperties: true,
+  properties: {
+    version: {
+      type: 'string',
+      pattern: '^v[0-9]+.[0-9]+.[0-9]+$',
+    },
+    shortcode: {
+      type: 'string',
+      maxLength: 255,
+    },
+  },
+};
+const ajv = new Ajv(); // options can be passed, e.g. {allErrors: true}
+const validate = ajv.compile(widgetSchema);
 
 /**
  * Checks if a widget has all the necessary information.
@@ -10,15 +27,15 @@ const requiredProperties = ['version', 'shortcode', 'repositoryUrl'];
  *
  * @returns {boolean}
  *   True if the object is valid. False otherwise.
- *
- * @todo: it will be more useful to write a schema for this instead.
  */
 module.exports = (widget) => {
-  return requiredProperties.reduce((isValid, prop) => {
-    if (typeof widget[prop] === 'undefined') {
-      debug('The property "%s" is not available in %o', prop, widget);
-      return false;
-    }
-    return isValid;
-  }, true);
+  const isValid = validate(widget);
+  if (!isValid) {
+    debug(
+      '\x1b[31m[error]\x1b[0m Error while validating the widget: %o',
+      validate.errors,
+    );
+    throw new Error('Invalid entry for a widget in the registry. Skipping.');
+  }
+  return isValid;
 };

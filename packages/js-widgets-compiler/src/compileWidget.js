@@ -38,13 +38,7 @@ module.exports = (remoteRegistryUrl, distDir, options) => async (widget) => {
     fs.mkdirSync(widgetDirectory, { recursive: true });
   }
   try {
-    if (!validateWidget(widget)) {
-      return handleError(
-        widgetDirectory,
-        shortcode,
-        new Error('Invalid entry for a widget in the registry. Skipping.'),
-      );
-    }
+    validateWidget(widget);
     // Determine the absolute URL for the widget directory on the COS bucket.
     const directoryUrl = buildUrl(
       remoteRegistryUrl.origin,

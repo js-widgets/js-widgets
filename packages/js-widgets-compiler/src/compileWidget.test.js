@@ -48,26 +48,6 @@ describe('compileWidget', () => {
     expect(moveWidgetDependencies).toHaveBeenCalledTimes(2);
     expect(finalizeWidgetObject).toHaveBeenCalledTimes(2);
   });
-  it('should handle invalid widgets', async () => {
-    expect.assertions(3);
-    fs.existsSync.mockImplementation(
-      (path) => path === `${__dirname}/../tests/exampleDir1/dist/lorem/v12`,
-    );
-    fs.mkdirSync.mockImplementation();
-    decompress.mockImplementation(() =>
-      Promise.resolve([
-        { path: 'file1' },
-        { path: 'file2' },
-        { path: 'file3' },
-      ]),
-    );
-
-    const compiler = compileWidget(remoteRegistryUrl, distDir, options);
-    const output = await compiler({ version: 'v12.9.9', shortcode: 'foo' });
-    expect(output.failed).toBe(true);
-    expect(moveWidgetDependencies).not.toHaveBeenCalled();
-    expect(finalizeWidgetObject).not.toHaveBeenCalled();
-  });
   it('should handle unexpected errors', async () => {
     expect.assertions(3);
     fs.existsSync.mockImplementation(

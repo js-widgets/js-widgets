@@ -5,22 +5,21 @@ describe('validateWidget', () => {
     expect.assertions(1);
     expect(
       validateWidget({
-        version: 'foo',
+        version: 'v1.1222.0',
         shortcode: 'bar',
-        repositoryUrl: 'baz',
         extra: 'zab',
       }),
     ).toBe(true);
   });
   it('should fail on invalid widget', () => {
-    expect.assertions(6);
-    expect(validateWidget({})).toBe(false);
-    expect(validateWidget({ version: 'foo' })).toBe(false);
-    expect(validateWidget({ shortcode: 'bar' })).toBe(false);
-    expect(validateWidget({ repositoryUrl: 'baz' })).toBe(false);
-    expect(validateWidget({ version: 'foo', shortcode: 'bar' })).toBe(false);
-    expect(validateWidget({ version: 'foo', repositoryUrl: 'baz' })).toBe(
-      false,
+    expect.assertions(5);
+    const message = 'Invalid entry for a widget in the registry. Skipping.';
+    expect(() => validateWidget({})).toThrow(message);
+    expect(() => validateWidget({ version: 'foo' })).toThrow(message);
+    expect(() => validateWidget({ shortcode: 'bar' })).toThrow(message);
+    expect(() => validateWidget({ repositoryUrl: 'baz' })).toThrow(message);
+    expect(() => validateWidget({ version: 'foo', shortcode: 'bar' })).toThrow(
+      message,
     );
   });
 });
