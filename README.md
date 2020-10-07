@@ -18,7 +18,7 @@ From there you decide where to upload the contents of `/dist`.
 ## Upload the registry
 Once have everything compiled you will need to upload the generated files to a server of you choice (read some suggestions further below). The `/dist/registry.json` will contain all the info your CMS will need to embed the JS app.
 
-For instance, I can have CI upload it to my personal server after finishing compilation. It could end up in https://static.mateuaguilo.com/widgets/registry.json. This URL is all your CMS needs to discover all the available apps and allow you to embed them anywhere.
+For instance, I can have GitHub Actions upload it to my personal server after finishing compilation. It could end up in https://static.mateuaguilo.com/widgets/registry.json. This URL is all your CMS needs to discover all the available apps and allow you to embed them anywhere.
 
 ## Widget Registry boilerplate
 Our recommendation is to fork [this project](https://github.com/js-widgets/widget-registry-boilerplate) and start from there. The Widget Registry boilerplate contains:
