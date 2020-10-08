@@ -7,11 +7,13 @@ const compileWidget = require('./compileWidget');
 const compileWidgets = require('./compileWidgets');
 
 describe('compileWidgets', () => {
+  let remoteInfo = { baseUrl: 'https://example.org', registryPath: '/widgets' };
   const options = {
     onlyCompileChanged: true,
     storage: {
       remote: {
-        origin: { baseUrl: 'https://example.org', registryPath: '/widgets' },
+        origin: remoteInfo,
+        destination: remoteInfo,
       },
       filesystem: {
         destination: {

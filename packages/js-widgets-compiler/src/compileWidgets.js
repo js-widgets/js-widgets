@@ -12,12 +12,17 @@ const filterUnchangedWidgets = require('./util/filterUnchangedWidgets');
 
 module.exports = async (options) => {
   const { rootDir, onlyCompileChanged } = options;
-  const remoteRegistryUrl = buildUrl(
+  const originRegistryUrl = buildUrl(
     options.storage.remote.origin.baseUrl,
     options.storage.remote.origin.registryPath,
     'registry.json',
   );
-  const url = remoteRegistryUrl.toString();
+  const destinationRegistryUrl = buildUrl(
+    options.storage.remote.destination.baseUrl,
+    options.storage.remote.destination.registryPath,
+    'registry.json',
+  );
+  const url = originRegistryUrl.toString();
   let originalRegistry = [];
   const registryData = await promisify(fs.readFile)(
     path.resolve(
@@ -74,7 +79,7 @@ module.exports = async (options) => {
     '\x1b[34m[debug]\x1b[0m skipping unchanged widgets: %s',
     unchangedWidgets.map((w) => `${w.shortcode} (${w.version})`).join(', '),
   );
-  const compiler = compileWidget(remoteRegistryUrl, distDir, options);
+  const compiler = compileWidget(destinationRegistryUrl, distDir, options);
   const requests = candidates.map(compiler);
 
   // Wait until requests for all repositories have finished.
