@@ -39,15 +39,15 @@ module.exports = (remoteRegistryUrl, distDir, options) => async (widget) => {
   }
   try {
     validateWidget(widget);
-    // Determine the absolute URL for the widget directory on the COS bucket.
+    // Determine the absolute URL for the widget directory on the destination.
     const directoryUrl = buildUrl(
       remoteRegistryUrl.origin,
       options.storage.remote.origin.registryPath,
       shortcode,
       widgetMajorVersion,
     );
-    // This is forces all the widgets to be served from the same location as the widget registry. This is to improve front
-    // end performance with preconnect and dns-prefetch.
+    // This is forces all the widgets to be served from the same location as the widget registry. This is to improve
+    // front end performance with preconnect and dns-prefetch.
     widget.directoryUrl = directoryUrl.toString();
 
     // Get the plugin from wherever the plugin creator put it, and download it to disk into tempDir.
