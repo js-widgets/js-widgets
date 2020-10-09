@@ -2,7 +2,7 @@
   "$schema": "http://json-schema.org/draft-07/schema#",
   "definitions": {
     "WidgetRegistryElement": {
-      "additionalProperties": false,
+      "additionalProperties": true,
       "properties": {
         "availableTranslations": {
           "title": "Available translations.",
@@ -207,6 +207,10 @@
           "format": "uri",
           "type": "string"
         },
+        "tarballUrl": {
+          "format": "uri",
+          "type": "string"
+        },
         "settingsSchema": {
           "$ref": "http://json-schema.org/draft-07/schema"
         },
@@ -231,7 +235,6 @@
         "availableTranslations",
         "directoryUrl",
         "files",
-        "repositoryUrl",
         "shortcode",
         "title",
         "version"
