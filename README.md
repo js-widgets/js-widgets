@@ -32,6 +32,8 @@ Our recommendation is to fork [this project](https://github.com/js-widgets/widge
 - CI processes (using GitHub Actions) that upload the resulting registry into [GitHub Pages](https://pages.github.com) to make it available to Drupal, Wordpress, SquareSpace, static HTML, etc.
 - Configuration management, so you can have a _sandbox_ environment to do your tests.
 
+You can for the project and use what you need from it. If you prefer using Circle CI for the continuous integration and deployment, that is perfectly reasonable. The choices made in the boilerplate are the best for the majority of cases, but you can go any other route to meet your particular project needs.
+
 ## Register a front-end JavaScript application
 
 The only input in the Widget Registry is the `/metadata/registry.json`. This contains an array of objets. Each object has the necessary metadata to compile a widget:
