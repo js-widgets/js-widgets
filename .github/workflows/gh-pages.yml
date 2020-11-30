@@ -2,7 +2,7 @@ name: website
 
 on:
   push:
-    branches: [ master ]
+    branches: [master]
 
 jobs:
   publish:
@@ -18,8 +18,7 @@ jobs:
       - run: npm test
       - name: Update Coverage Badge
         run: npm run update-badge
-      -
-        name: Gen dummy page
+      - name: Gen dummy page
         run: |
           cat > public/index.html <<EOL
           <!doctype html>
@@ -32,8 +31,7 @@ jobs:
             </body>
           </html>
           EOL
-      -
-        name: Deploy to GitHub Pages
+      - name: Deploy to GitHub Pages
         if: success()
         uses: crazy-max/ghaction-github-pages@v2
         with:
