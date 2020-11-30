@@ -28,4 +28,14 @@ describe('finalizeWidgetObject', () => {
       ),
     ).toThrow("ENOENT: no such file or directory, scandir '/invalid-dir'");
   });
+  it('should fail if no asset-manifest.json', () => {
+    expect.assertions(1);
+    expect(() =>
+      finalizeWidgetObject(
+        { shortcode: 'foo' },
+        `${__dirname}/../tests/mocks/fail1`,
+        `${__dirname}/../tests/exampleDir1`,
+      ),
+    ).toThrow('File build/asset-manifest.json was not found.');
+  });
 });

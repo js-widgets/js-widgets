@@ -2,7 +2,23 @@
 
 exports[`finalizeWidgetObject should fill in the details 1`] = `
 Object {
+  "assetManifest": Object {
+    "entrypoints": Array [
+      "static/js/runtime-main.91bc4a78.js",
+      "static/js/2.e7f4434f.chunk.js",
+      "static/css/main.036e404b.chunk.css",
+      "static/js/main.5939b039.chunk.js",
+    ],
+    "files": Object {
+      "main.css": "/example-widget/static/css/main.036e404b.chunk.css",
+      "main.js": "/example-widget/static/js/main.5939b039.chunk.js",
+      "precache-manifest.a83582de03f743fdf931b062f9402d7b.js": "/example-widget/precache-manifest.a83582de03f743fdf931b062f9402d7b.js",
+      "runtime-main.js": "/example-widget/static/js/runtime-main.91bc4a78.js",
+      "static/js/2.e7f4434f.chunk.js": "/example-widget/static/js/2.e7f4434f.chunk.js",
+    },
+  },
   "files": Array [
+    "build/asset-manifest.json",
     "exampleDir2/example2.txt",
     "exampleDir2/example3.txt",
     "widget.json",
