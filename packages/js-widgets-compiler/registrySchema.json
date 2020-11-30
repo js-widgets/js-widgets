@@ -208,7 +208,6 @@
           "type": "string"
         },
         "tarballUrl": {
-          "format": "uri",
           "type": "string"
         },
         "settingsSchema": {
