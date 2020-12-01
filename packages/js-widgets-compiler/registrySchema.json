@@ -203,6 +203,22 @@
           },
           "type": "array"
         },
+        "owner": {
+          "properties": {
+            "email": {
+              "format": "email",
+              "type": "string"
+            },
+            "name": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "email",
+            "name"
+          ],
+          "type": "object"
+        },
         "repositoryUrl": {
           "format": "uri",
           "type": "string"
