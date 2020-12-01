@@ -3,6 +3,9 @@
 exports[`compileWidgets should compile every widget and write the result 1`] = `
 Array [
   Object {
+    "assetManifest": Object {
+      "files": Object {},
+    },
     "availableTranslations": Array [
       "en",
     ],
@@ -19,6 +22,9 @@ Array [
 exports[`compileWidgets should tolerate a 404 for the original registry 1`] = `
 Array [
   Object {
+    "assetManifest": Object {
+      "files": Object {},
+    },
     "availableTranslations": Array [
       "en",
     ],
