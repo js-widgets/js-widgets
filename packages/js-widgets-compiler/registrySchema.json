@@ -4,6 +4,26 @@
     "WidgetRegistryElement": {
       "additionalProperties": true,
       "properties": {
+        "assetManifest": {
+          "type": "object",
+          "required": [
+            "files"
+          ],
+          "properties": {
+            "files": {
+              "type": "object",
+              "additionalProperties": {
+                "type": "string"
+              }
+            },
+            "entrypoints": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            }
+          }
+        },
         "availableTranslations": {
           "title": "Available translations.",
           "description": "List of language codes the widget is available in. There should be at least one supported language.",
@@ -247,6 +267,7 @@
         }
       },
       "required": [
+        "assetManifest",
         "availableTranslations",
         "directoryUrl",
         "files",
