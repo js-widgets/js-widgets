@@ -25,6 +25,7 @@ describe('compileWidgets', () => {
   };
   const addWidgetData = (widget) => ({
     ...widget,
+    assetManifest: { files: {} },
     availableTranslations: ['en'],
     directoryUrl: 'https://example.org/lorem',
     files: [],
