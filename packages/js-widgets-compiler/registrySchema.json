@@ -6,9 +6,7 @@
       "properties": {
         "assetManifest": {
           "type": "object",
-          "required": [
-            "files"
-          ],
+          "required": ["files"],
           "properties": {
             "files": {
               "type": "object",
@@ -233,10 +231,7 @@
               "type": "string"
             }
           },
-          "required": [
-            "email",
-            "name"
-          ],
+          "required": ["email", "name"],
           "type": "object"
         },
         "repositoryUrl": {
