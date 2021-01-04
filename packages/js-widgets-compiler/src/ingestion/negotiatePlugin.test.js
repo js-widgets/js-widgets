@@ -22,6 +22,16 @@ describe('negotiatePlugin', () => {
       negotiatePlugin(widgetMeta, supportedPluginType, pluginOptions),
     ).resolves.toHaveProperty('descriptor.id', 'ghReleases');
   });
+  it('should not detect invalid plugins', async () => {
+    expect.assertions(1);
+    const widgetMeta = { iAmAPlugin: 'foo' };
+    const pluginOptions = {};
+    await expect(
+      negotiatePlugin(widgetMeta, supportedPluginType, pluginOptions),
+    ).rejects.toThrow(
+      'Unable to find an ingestion plugin for the widget metadata: {"iAmAPlugin":"foo"',
+    );
+  });
   it('should detect the ghReleases plugin with custom options', async () => {
     expect.assertions(1);
     const widgetMeta = { repositoryUrl: 'foo' };

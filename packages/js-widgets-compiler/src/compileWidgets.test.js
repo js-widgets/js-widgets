@@ -47,7 +47,7 @@ describe('compileWidgets', () => {
       ...options,
       onlyCompileChanged: false,
     });
-    expect(mocked).toHaveBeenCalledTimes(1);
+    expect(mocked).toHaveBeenCalledTimes(2);
     expect(message).toBe('All widgets processed. \x1b[32m✓\x1b[0m');
     expect(
       JSON.parse(
@@ -72,6 +72,11 @@ describe('compileWidgets', () => {
       addWidgetData({
         shortcode: 'foo',
         version: 'v1.0.1',
+        repositoryUrl: 'h',
+      }),
+      addWidgetData({
+        shortcode: 'foo-invalid',
+        version: 'v9.8.7',
         repositoryUrl: 'h',
       }),
     ];

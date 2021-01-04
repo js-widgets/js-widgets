@@ -41,6 +41,7 @@ The only input in the Widget Registry is the `/metadata/registry.json`. This con
 1. The `shortcode` or machine name of the widget. This is the widget identifier.
 1. The `version` that needs to be published. Once the widget has been published for the first time, it is likely that this is the only parameter that needs to be tweaked (via a Pull Request to your own widget registry project) to publish a new release of the JS app.
 1. The `repositoryUrl` or `tarballUrl`. If you are hosting your JS app in GitHub and you are using [GitHub Releases](https://developer.github.com/v3/repos/releases) you can set `repositoryUrl` and be done. The compiler will know how to locate and download your application's `.tar.gz` tarball. If you are hosting your application releases differently, you will need to use the `tarballUrl` property to specify where the `.tar.gz` file is for this version of your application. This can be a local path or a remote URL.
+1. The `status` of the widget. With allowed values of `(stable|beta|wip|deprecated)` it will show in the widget registry and in the catalog if a widget is ready to embed in production.
 
 ### If you have your JS app releases in another place
 

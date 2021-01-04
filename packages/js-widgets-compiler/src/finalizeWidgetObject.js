@@ -1,5 +1,6 @@
 const debug = require('debug')('widget:compile:finalize');
 const { existsSync, readFileSync } = require('fs');
+const currentTime = require('./util/currentTime');
 
 const listFilesSync = require('./util/listFilesSync');
 
@@ -8,6 +9,10 @@ module.exports = (widget, tempWidgetDirectory, widgetDirectory) => {
   // Generate the list of files available for the widget.
   debug(`[info] - [${shortcode}] Generating list of files.`);
   widget.files = listFilesSync(widgetDirectory);
+  widget.updatedAt = currentTime();
+  if (typeof widget.createdAt === 'undefined') {
+    widget.createdAt = widget.updatedAt;
+  }
   // Load widget.json file from widget root directory and merge
   // its contents to widget array.
   debug(`[info] - [${shortcode}] Loading widget.json file.`);

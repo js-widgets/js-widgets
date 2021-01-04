@@ -8,6 +8,7 @@ const { inspect } = require('util');
 
 const buildUrl = require('./util/buildUrl');
 const rmdirRecursiveSync = require('./util/rmdirRecursiveSync');
+const mkdirSyncIfNotExists = require('./util/mkdirSyncIfNotExists');
 const validateWidget = require('./validateWidget');
 const negotiatePlugin = require('./ingestion/negotiatePlugin');
 const moveWidgetDependencies = require('./moveWidgetDependencies');
@@ -34,9 +35,7 @@ module.exports = (remoteRegistryUrl, distDir, options) => async (widget) => {
   const widgetMajorVersion = `v${version.split('.')[0]}`;
   const widgetDirectory = path.join(distDir, shortcode, widgetMajorVersion);
   // Ensure the widget directory under dist exists.
-  if (!fs.existsSync(widgetDirectory)) {
-    fs.mkdirSync(widgetDirectory, { recursive: true });
-  }
+  mkdirSyncIfNotExists(widgetDirectory);
   try {
     validateWidget(widget);
     // Determine the absolute URL for the widget directory on the destination.
@@ -58,6 +57,7 @@ module.exports = (remoteRegistryUrl, distDir, options) => async (widget) => {
     );
     // Ingestion plugins have a `tarballUrl` and a `download` method.
     const tarballPath = await ingestionPlugin.exports.download(widget, tempDir);
+    widget.tarballUrl = tarballPath;
 
     // Decompress the file and move its contents to the directory
     debug(`[info] - [${shortcode}] Uncompressing release.`);
