@@ -14,6 +14,10 @@ const widgetSchema = {
       type: 'string',
       maxLength: 255,
     },
+    status: {
+      type: 'string',
+      enum: ['stable', 'beta', 'wip', 'deprecated'],
+    },
   },
 };
 const ajv = new Ajv(); // options can be passed, e.g. {allErrors: true}

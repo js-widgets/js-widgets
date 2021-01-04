@@ -3,5 +3,11 @@
     "shortcode": "foo",
     "version": "v1.0.1",
     "repositoryUrl": "h"
+  },
+  {
+    "shortcode": "foo-invalid",
+    "version": "v9.8.7",
+    "failed": true,
+    "repositoryUrl": "h"
   }
 ]

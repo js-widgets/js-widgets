@@ -1,11 +1,19 @@
 const finalizeWidgetObject = require('./finalizeWidgetObject');
+jest.mock('./util/currentTime', () => () => '2021-01-04T11:17:22.940Z');
 
 describe('finalizeWidgetObject', () => {
   it('should fill in the details', () => {
-    expect.assertions(1);
+    expect.assertions(2);
     expect(
       finalizeWidgetObject(
         { shortcode: 'foo' },
+        `${__dirname}/../tests/exampleDir1`,
+        `${__dirname}/../tests/exampleDir1`,
+      ),
+    ).toMatchSnapshot();
+    expect(
+      finalizeWidgetObject(
+        { shortcode: 'foo', createdAt: 'a made up date' },
         `${__dirname}/../tests/exampleDir1`,
         `${__dirname}/../tests/exampleDir1`,
       ),
