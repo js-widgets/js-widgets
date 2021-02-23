@@ -1,6 +1,6 @@
 {
   "name": "@js-widgets/ingestion-gh-releases",
-  "version": "1.4.0",
+  "version": "1.4.1",
   "description": "Ingests widgets from the GitHub releases API.",
   "engines": {
     "node": ">=10"
@@ -17,7 +17,7 @@
     "directory": "packages/js-widgets-compiler"
   },
   "dependencies": {
-    "@js-widgets/ingestion-tarball": "^1.4.0",
+    "@js-widgets/ingestion-tarball": "^1.4.1",
     "debug": "^4.1.1",
     "github-api": "^3.3.0",
     "plugnplay": "^3.6.0"
