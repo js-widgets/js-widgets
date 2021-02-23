@@ -1,6 +1,6 @@
 {
   "name": "@js-widgets/ingestion-tarball",
-  "version": "1.4.1",
+  "version": "1.4.3",
   "description": "Ingests widgets from the tarball location.",
   "engines": {
     "node": ">=10"
