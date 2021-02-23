@@ -1,3 +1,3 @@
 # Widget Compiler
 
-_Documentation pending_
+_Documentation pending._

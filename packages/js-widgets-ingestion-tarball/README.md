@@ -1,3 +1,3 @@
 # Ingestion: GitHub Releases
 
-_Pending_
+_Documantation pending._
