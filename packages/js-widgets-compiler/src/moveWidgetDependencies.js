@@ -18,7 +18,7 @@ module.exports = async (widget, origin, destination) => {
   const { shortcode } = widget;
   const packageManagerName = 'npm';
   debug(`[info] - [${shortcode}] Installing dependencies.`);
-  await runCommand(packageManagerName, ['install'], {
+  await runCommand(packageManagerName, ['install', '--production=false'], {
     cwd: origin,
     scope: shortcode,
     successMessage: 'Dependencies were successfully installed.',
