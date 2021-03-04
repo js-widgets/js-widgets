@@ -18,10 +18,16 @@ module.exports = async (widget, origin, destination) => {
   const { shortcode } = widget;
   const packageManagerName = 'npm';
   debug(`[info] - [${shortcode}] Installing dependencies.`);
-  await runCommand(packageManagerName, ['install', '--include=dev'], {
+  await runCommand(packageManagerName, ['install'], {
     cwd: origin,
     scope: shortcode,
     successMessage: 'Dependencies were successfully installed.',
+  });
+  debug(`[info] - [${shortcode}] Installing devDependencies.`);
+  await runCommand(packageManagerName, ['install', '--only', 'development'], {
+    cwd: origin,
+    scope: shortcode,
+    successMessage: 'Dev dependencies were successfully installed.',
   });
   await runCommand(packageManagerName, ['run', 'build'], {
     cwd: origin,
