@@ -4,3 +4,4 @@
 /packages/js-widgets-compiler/dist
 /packages/js-widgets-compiler/metadata
 /packages/js-widgets-compiler/tests/mocks/fail1/metadata/registry.json
+package-lock.json
