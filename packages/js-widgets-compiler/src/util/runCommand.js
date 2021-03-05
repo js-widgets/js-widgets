@@ -18,11 +18,10 @@ module.exports = (command, args, options) =>
   new Promise((resolve, reject) => {
     const { scope, successMessage } = options;
     debug(
-      '[debug] - [%s] Executing command: "%s %s" with %o',
+      '[debug] - [%s] Executing command: "%s %s"',
       scope,
       command,
       args.join(' '),
-      options,
     );
     const subprocess = spawn(command, args, options);
     subprocess.stdout.setEncoding('utf8');
