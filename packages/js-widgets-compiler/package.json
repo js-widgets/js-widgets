@@ -1,6 +1,6 @@
 {
   "name": "@js-widgets/compiler",
-  "version": "1.4.8",
+  "version": "1.4.9",
   "description": "Widget registry definition file and the compiled widgets.",
   "engines": {
     "node": ">=10"
@@ -27,6 +27,6 @@
     "plugnplay": "^3.6.0"
   },
   "devDependencies": {
-    "@js-widgets/ingestion-gh-releases": "^1.4.4"
+    "@js-widgets/ingestion-gh-releases": "^1.4.9"
   }
 }
