@@ -49,7 +49,7 @@ The `tarballUrl` has you covered, but you might want to automate the computation
 
 You will need to determine a new property (ex: `gitlabRepo`) and implement the logic to determine the URL to the tarball.
 
-You can keep these plugins to yourself, but if you think it can benefit others we encourage you to [contribute](https://github.com/js-widgets/js-widgets/blob/master/CONTRIBUTE.md) it!
+You can keep these plugins to yourself, but if you think it can benefit others we encourage you to [contribute](https://github.com/js-widgets/js-widgets/blob/master/CONTRIBUTE.md) it.
 
 ## Examples
 
