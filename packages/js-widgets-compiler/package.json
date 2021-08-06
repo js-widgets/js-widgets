@@ -1,6 +1,6 @@
 {
   "name": "@js-widgets/compiler",
-  "version": "1.4.9",
+  "version": "1.5.0",
   "description": "Widget registry definition file and the compiled widgets.",
   "engines": {
     "node": ">=10"
