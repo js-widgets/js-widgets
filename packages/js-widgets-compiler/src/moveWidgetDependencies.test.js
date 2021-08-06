@@ -18,6 +18,6 @@ describe('moveWidgetDependencies', () => {
       'tests/destination',
       false,
     );
-    expect(runCommand).toHaveBeenCalledTimes(3);
+    expect(runCommand).toHaveBeenCalledTimes(2);
   });
 });
