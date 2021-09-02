@@ -1,0 +1,134 @@
+{
+  "$id": "https://github.com/js-widgets/js-widgets/registry.schema.json",
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "definitions": {
+    "WidgetRegistryElement": {
+      "additionalProperties": true,
+      "type": "object",
+      "properties": {
+        "directoryUrl": {
+          "format": "uri",
+          "type": "string",
+          "title": "Directory URL",
+          "description": "Used to locate the assets for a specific widget type. Use this if the location of the JS, CSS, images, etc. is different from the location of this document.",
+          "examples": [
+            "https://s3.amazonaws.com/acmeinc.widgets.prod",
+            "https://static.mateuaguilo.com"
+          ]
+        },
+        "shortcode": {
+          "type": "string",
+          "maxLength": 255,
+          "title": "Machine Name ID",
+          "description": "The widget type identifier across all systems. This ID should be unique per registry.",
+          "examples": [
+            "boilerplate",
+            "foo-bar"
+          ]
+        },
+        "version": {
+          "pattern": "^v[0-9]+\\.[0-9]+\\.[0-9]+$",
+          "type": "string",
+          "title": "Version",
+          "description": "The semantic version string for the widget. This is mainly used for change detection.",
+          "examples": [
+            "v0.2.1",
+            "v3.0.1"
+          ]
+        },
+        "files": {
+          "type": "array",
+          "title": "Widget Type Files",
+          "description": "The list of files necessary to embed a widget into an HTML page. If you are building a widget type CMS integration, this should be your main integration point. A widget should be completely functional after including these files and then executing the render function.",
+          "items": {
+            "type": "string",
+            "description": "File path relative to \"directoryUrl\" to embed on the page for this widget. If no \"directoryUrl\" is present then consider these files to be relative to the location of this document.",
+            "examples": [
+              "js/main.js",
+              "assets/media.jpeg",
+              "1/FA/99/BF3305.chunk.js"
+            ]
+          }
+        },
+        "title": {
+          "type": "string",
+          "title": "The human readable name for the widget.",
+          "description": "This is used in editorial tools to provide a friendlier alternative to \"shortcode\". This property should be unique per registry to avoid confusion, but it is not mandatory.",
+          "examples": [
+            "Boilerplate",
+            "Foo is the Bar"
+          ],
+          "maxLength": 255
+        },
+        "createdAt": {
+          "type": "string",
+          "format": "date-time",
+          "description": "The original date when this was created.",
+          "examples": [
+            "2021-04-28T14:15:03.750Z"
+          ]
+        },
+        "updatedAt": {
+          "type": "string",
+          "format": "date-time",
+          "description": "The last time this entry was modified.",
+          "examples": [
+            "2021-04-28T14:15:03.750Z"
+          ]
+        },
+        "settingsSchema": {
+          "type": "object",
+          "nullable": true,
+          "title": "Editorial Display Options",
+          "description": "Used by widget developers to create reusable widget types. Allows JS widget developers to specify input data that the widget needs.\n\nSome examples for this could include:\n\n - _Content for a CTA button_.\n - _A radio button to select dark mode_, \n - _a checklist to only display certain products on the widget_.\n - _A text field to specify an API endpoint_.\n - etc.\n\nThis uses the JSON Schema format for each one of the fields, then each CMS integration will transform that into a form that editors will use for data input. Data provided by editors will then be serialized and rendered as `\"data-[name-of-field]\"` attributes in the wrapper `div` for the widget.",
+          "properties": {
+            "fields": {
+              "$ref": "http://json-schema.org/draft-07/schema#"
+            }
+          }
+        },
+        "status": {
+          "type": "string",
+          "title": "Status",
+          "maxLength": 255,
+          "description": "Denotes the status of the widget and its readiness for production.",
+          "enum": [
+            "stable",
+            "beta",
+            "wip",
+            "deprecated"
+          ]
+        },
+        "help": {
+          "type": "string",
+          "title": "Help Text",
+          "description": "Documentation or help for this widget. This is provided by the developer and it may be surfaced to editors in the CMS editorial forms. This field can contain HTML.",
+          "examples": [
+            "The G2 Crowd widget pulls the data from the G2 API to display interactive information on the product specified."
+          ]
+        },
+        "homepage": {
+          "type": "string",
+          "format": "uri",
+          "title": "Project Page",
+          "description": "A URL with more information about the widget. This is typically a link to the widget type repository or demo page. This page should contain information about the license of the software for the widget.",
+          "examples": [
+            "https://github.com/MyOrg/js-widget-types-monorepo",
+            "https://codeberg.org/MyOrg/js-widget-types-monorepo"
+          ]
+        }
+      },
+      "required": [
+        "files",
+        "shortcode",
+        "version",
+        "title"
+      ],
+      "title": "WidgetRegistryElement"
+    }
+  },
+  "type": "array",
+  "items": {
+    "$ref": "#/definitions/WidgetRegistryElement"
+  }
+}

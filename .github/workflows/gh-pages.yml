@@ -18,19 +18,11 @@ jobs:
       - run: npm test
       - name: Update Coverage Badge
         run: npm run update-badge
-      - name: Gen dummy page
+      - name: Generate documentation page
         run: |
-          cat > public/index.html <<EOL
-          <!doctype html>
-          <html>
-            <head>
-              <title>GitHub Pages deployed!</title>
-            </head>
-            <body>
-              <p>GitHub Pages with <strong>${{ github.sha }}</strong> commit ID has been deployed through <a href="https://github.com/marketplace/actions/github-pages">GitHub Pages action</a> successfully.</p>
-            </body>
-          </html>
-          EOL
+          pip install json-schema-for-humans
+          mkdir -p public/registry-schema
+          generate-schema-doc registry.schema.json --config expand_buttons=true --config description_is_markdown=true public/registry-schema/index.html
       - name: Deploy to GitHub Pages
         if: success()
         uses: crazy-max/ghaction-github-pages@v2
