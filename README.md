@@ -2,6 +2,8 @@
 
 The Widget Registry is a project that allows you to maintain a registry of JavaScript applications. The goal of this project is to be able to **register** your JS application (React, Vue, vanilla JS, ...) so it can be discoverable and embedded in other places easily.
 
+Check the [schema documentation](https://js-widgets.github.io/js-widgets/registry-schema/). This contains help of how to use each one of the properties in the registry JSON file.
+
 ## Statically self hosted
 
 The goal of this project is to give you the ability to create your own independent widget registry and host wherever you want. We recommend starting with GitHub pages for ease of setup. All the computation is done via CI, that means that you can host your widget registry in an static site hosting like GitHub Pages (free!), AWS S3, your own server, etc.
