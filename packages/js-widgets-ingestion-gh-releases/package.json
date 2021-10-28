@@ -18,8 +18,8 @@
   },
   "dependencies": {
     "@js-widgets/ingestion-tarball": "^1.5.2",
-    "debug": "^4.1.1",
+    "debug": "^4.3.2",
     "github-api": "^3.3.0",
-    "plugnplay": "^3.6.0"
+    "plugnplay": "^3.15.0"
   }
 }

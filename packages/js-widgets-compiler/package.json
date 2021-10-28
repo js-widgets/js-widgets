@@ -17,14 +17,14 @@
     "directory": "packages/js-widgets-compiler"
   },
   "dependencies": {
-    "ajv": "^6.12.4",
-    "axios": "^0.21.1",
-    "config": "^3.3.1",
-    "debug": "^4.1.1",
+    "ajv": "^6.12.6",
+    "axios": "^0.21.4",
+    "config": "^3.3.6",
+    "debug": "^4.3.2",
     "decompress": "^4.2.0",
     "find-versions": "^3.2.0",
     "github-api": "^3.3.0",
-    "plugnplay": "^3.6.0"
+    "plugnplay": "^3.15.0"
   },
   "devDependencies": {
     "@js-widgets/ingestion-gh-releases": "^1.5.2"
