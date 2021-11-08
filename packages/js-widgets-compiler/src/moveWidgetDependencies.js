@@ -20,6 +20,12 @@ module.exports = async (widget, origin, destination) => {
   debug(
     `[info] - [${shortcode}] Installing dependencies including devDependencies.`,
   );
+  await runCommand('nvm use', [], {
+    cwd: origin,
+    scope: shortcode,
+    successMessage:
+      "Checking for .nvmrc file. Switching to widget's configured Node version if found.",
+  });
   await runCommand(packageManagerName, ['install', '--also', 'dev'], {
     cwd: origin,
     scope: shortcode,
