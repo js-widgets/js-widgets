@@ -1,3 +1,5 @@
+# UNSUPPORTED USE https://github.com/js-widgets/webpack-cli INSTEAD
+
 # Widget Registry ![Coverage](https://js-widgets.github.io/js-widgets/assets/coverage.svg)
 
 The Widget Registry is a project that allows you to maintain a registry of JavaScript applications. The goal of this project is to be able to **register** your JS application (React, Vue, vanilla JS, ...) so it can be discoverable and embedded in other places easily.
